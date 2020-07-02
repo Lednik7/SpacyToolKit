@@ -1,2 +1,71 @@
 # SpacyTools
 This is a small library designed to quickly stack Spacy models.
+
+Choose the language of documantation:
+1) English #сслыка
+2) Russian #ссылка
+
+## Getting started
+### Installing: ###
+
+```
+pip install SpacyTools
+```
+### Needed packages: ###
+For the library to work correctly, you need to download packages
+
+```
+pip install spacy
+pip install googletrans
+pip install pymorphy2==0.8
+```
+
+## Your first model ##
+
+### Prerequisites: ###
+
+Before you run the code below, you need to install one of the models:
+```
+Russian models:
+!git clone -b v2.1 https://github.com/buriy/spacy-ru.git && cp -r ./spacy-ru/ru2/.
+English models:
+!python -m spacy download en_core_web_sm #size 11 mb
+!python -m spacy download en_core_web_md #size 48 mb
+!python -m spacy download en_core_web_lg #size 746 mb
+```
+
+### Simple model: ###
+
+To begin, we import the necessary functions and the main class:
+```
+from SpacyTools import SpacyTools, get_translate, sort_doc
+```
+Now create an instance of the class:
+```
+model = SpacyTools()
+```
+Since the model works best in English, we’ll use a translation from Google:
+```
+text = model.sample_text
+trans = get_translate(text) #text translation into english
+```
+
+Now we are ready to load the text into the model and make a prediction:
+```
+model.load_text(trans)
+doc = model.create() #model default: en_core_web_sm
+```
+Let's look at the result:
+```
+print(sort_doc(doc))
+print(model.text)
+```
+Output:
+```
+Time: 1.39 - en_sm
+['Python', 'Data Science', 'GitHub']
+Data Analyst with work experience. He graduated from SSAU with a master's degree in mathematics.
+I have experience working with various databases and in writing macros. Worked with various data analysis frameworks in Python.
+He participated in the development of several systems for data analysis. There are examples of their Data Science projects on GitHub:
+```
+Fine! Now you are ready to delve into the topic.
