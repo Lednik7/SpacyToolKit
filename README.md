@@ -2,8 +2,8 @@
 This is a small library designed to quickly stack Spacy models.
 
 Choose the language of documantation:
-1) English #сслыка
-2) Russian #ссылка
+1) English [here](https://github.com/Lednik7/SpacyTools/blob/master/documentation-en.md)
+2) Russian [here](https://github.com/Lednik7/SpacyTools/blob/master/documentation-ru.md)
 
 ## Getting started
 ### Installing: ###
@@ -68,6 +68,8 @@ I have experience working with various databases and in writing macros. Worked w
 He participated in the development of several systems for data analysis. There are examples of their Data Science projects on GitHub:
 ```
 Fine! Now you are ready to delve into the topic.
+
+You can see examples [here](https://github.com/Lednik7/SpacyTools/tree/master/examples)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Lednik7/SpacyTools/blob/master/LICENSE) file for details
