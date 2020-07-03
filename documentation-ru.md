@@ -122,3 +122,6 @@ print(data)
 Для работы необходима функция most_copy().
 
 ### Вы также можете вызвать описание функции с помощью help(your func here)
+```python
+help(get_translate)
+```
