@@ -33,6 +33,8 @@ English models:
 !python -m spacy download en_core_web_lg #size 746 mb
 ```
 
+More information about models [en](https://spacy.io/models/en) and [ru](https://github.com/buriy/spacy-ru)
+
 ### Simple model: ###
 
 To begin, we import the necessary functions and the main class:
