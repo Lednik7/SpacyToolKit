@@ -1,4 +1,4 @@
-# SpacyTools
+# SpacyToolKit
 This is a small library designed to quickly stack Spacy models.
 
 Choose the language of documantation:
@@ -13,8 +13,7 @@ pip install SpacyTools
 ```
 ### Needed packages: ###
 For the library to work correctly, you need to download packages
-
-```
+```python
 pip install spacy
 pip install googletrans
 pip install pymorphy2==0.8
@@ -25,7 +24,7 @@ pip install pymorphy2==0.8
 ### Prerequisites: ###
 
 Before you run the code below, you need to install one of the models:
-```
+```python
 Russian models:
 !git clone -b v2.1 https://github.com/buriy/spacy-ru.git && cp -r ./spacy-ru/ru2/.
 English models:
@@ -37,27 +36,27 @@ English models:
 ### Simple model: ###
 
 To begin, we import the necessary functions and the main class:
-```
-from SpacyTools import SpacyTools, get_translate, sort_doc
+```python
+from SpacyToolKit import SpacyTools, get_translate, sort_doc
 ```
 Now create an instance of the class:
-```
+```python
 model = SpacyTools()
 ```
 Since the model works best in English, we’ll use a translation from Google:
-```
-text = model.sample_text
+```python
+text = model.sample_text #your text
 trans = get_translate(text) #text translation into english
 ```
 
 Now we are ready to load the text into the model and make a prediction:
-```
+```python
 model.load_text(trans)
 doc = model.create() #model default: en_core_web_sm
 ```
 Let's look at the result:
-```
-print(sort_doc(doc))
+```python
+print(sort_doc(doc)) #filter the results
 print(model.text)
 ```
 Output:
@@ -69,3 +68,6 @@ I have experience working with various databases and in writing macros. Worked w
 He participated in the development of several systems for data analysis. There are examples of their Data Science projects on GitHub:
 ```
 Fine! Now you are ready to delve into the topic.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Lednik7/SpacyTools/blob/master/LICENSE) file for details
