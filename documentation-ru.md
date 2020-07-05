@@ -31,7 +31,7 @@ model.load_file("path to file.txt")
 
 Функция считывает текст из файла до которого указан путь. Записывает текст в self.text.
 
-### create(self, lang="en_sm")
+### create(self, nlp=None)
 ```python
 model.create(nlp=None)
 ```
