@@ -3,8 +3,7 @@ from setuptools import setup
 setup(
    name='SpacyToolKit',
    version='1.0.0',
-   packages=['SpacyToolKit.py'],
+   packages=['Tools.py'],
    author='Maxim Gerasimov',
-   author_email='none',
    install_requires=['spacy>=2.0', 'pymorphy2>=0.8', "googletrans=>3.0.0"]
 )
