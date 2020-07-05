@@ -2,7 +2,6 @@
 
 ### __ init __(self)
 ```python
-self.lang = ["en_sm", "en_md", "en_lg", "ru_lg"]
 self.text = ""
 self.sample_text = """Аналитик данных с опытом работы. Окончил СГАУ со степенью магистра по математике. 
     Имею опыт работы с различными БД и в написании макросов. Работал с различными фреймворками для анализа данных на Python. 
@@ -12,7 +11,7 @@ self.functions = ["get_translate", "sort_doc", "cleaning", "words_count", "find_
 
 ### SpacyTools():
 ```python
-from SpacyToolKit import SpacyTools
+from SpacyToolKit.Tools import SpacyTools
 model = SpacyTools()
 ```
 SpacyTools is a class that allows you to quickly create and use models for stacking. The main language is English.
@@ -34,9 +33,9 @@ The function reads the text from the file to which the path is specified. Writes
 
 ### create(self, lang="en_sm")
 ```python
-model.create("en_sm")
+model.create(nlp=None)
 ```
-The function accepts self and lang (responsible for the language model).
+The function accepts self and nlp (responsible for the language model).
 Allows you to quickly create models for stacking.
 Returns a doc object.
 
