@@ -2,7 +2,6 @@
 
 ### __ init __(self)
 ```python
-self.lang = ["en_sm", "en_md", "en_lg", "ru_lg"]
 self.text = ""
 self.sample_text = """Аналитик данных с опытом работы. Окончил СГАУ со степенью магистра по математике. 
     Имею опыт работы с различными БД и в написании макросов. Работал с различными фреймворками для анализа данных на Python. 
@@ -34,29 +33,32 @@ model.load_file("path to file.txt")
 
 ### create(self, lang="en_sm")
 ```python
-model.create("en_sm")
+model.create(nlp=None)
 ```
-Функция принимает self и lang(отвечает за языковую модель). 
+Функция принимает self и nlp(отвечает за языковую модель). 
 Позволяет быстро создавать модели для стекинкга.
 Возвращает объект doc.
 
 ### Example
 
 ```python
-from SpacyToolKit import SpacyTools
+from SpacyToolKit.Tools import SpacyTools
+import en_core_web_sm
 
 model = SpacyTools()
 
 model.load_text(model.sample_text)
 
-model.create()
+nlp = en_core_web_sm.load()
+
+model.create(nlp)
 ```
 
 ## Побочные функции
 
 Для работы всех примеров:
 ```python
-from SpacyToolKit import *
+from SpacyToolKit.Tools import import *
 ```
 
 ### get_translate(text)
