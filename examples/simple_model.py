@@ -1,4 +1,5 @@
-from SpacyTools import SpacyTools, get_translate, sort_doc
+from SpacyToolKit.Tools import SpacyTools, get_translate, sort_doc
+import en_core_web_sm
 
 model = SpacyTools()
 
@@ -6,7 +7,8 @@ text = model.sample_text
 trans = get_translate(text)
 
 model.load_text(trans)
-doc = model.create()
+nlp = en_core_web_sm.load()
+doc = model.create(nlp)
 
 print(sort_doc(doc))
 print(model.text)
