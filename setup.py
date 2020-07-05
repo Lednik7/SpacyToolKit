@@ -6,5 +6,5 @@ setup(
    packages=['SpacyToolKit.py'],
    author='Maxim Gerasimov',
    author_email='none',
-   install_requires=['spacy>=2.0', 'pymorphy2>=0.8']
+   install_requires=['spacy>=2.0', 'pymorphy2>=0.8', "googletrans=>3.0.0"]
 )
