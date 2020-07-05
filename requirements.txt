@@ -1,0 +1,3 @@
+spacy==2.3.0
+googletrans==3.0.0
+pymorphy2==0.8
