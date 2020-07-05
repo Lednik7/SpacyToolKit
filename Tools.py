@@ -18,9 +18,6 @@ class SpacyTools():
   """
   A convenient class that allows you to quickly create and use models for stacking.
   The main language is English.
-  ru:
-  Удобный класс, позволяющий быстро создавать и использовать модели для стеккинга.
-  Основной язык - английский.
   """
   def __init__(self):
 
