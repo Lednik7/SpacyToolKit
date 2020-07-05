@@ -11,7 +11,7 @@ self.functions = ["get_translate", "sort_doc", "cleaning", "words_count", "find_
 
 ### SpacyTools():
 ```python
-from SpacyToolKit import SpacyTools
+from SpacyToolKit.Tools import SpacyTools
 model = SpacyTools()
 ```
 SpacyTools - это класс позволяющий быстро создавать и использовать модели для стеккинга. Основной язык - английский.
