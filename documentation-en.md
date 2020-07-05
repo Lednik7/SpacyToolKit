@@ -31,7 +31,7 @@ model.load_file("path to file.txt")
 
 The function reads the text from the file to which the path is specified. Writes text to self.text.
 
-### create(self, lang="en_sm")
+### create(self, nlp=None)
 ```python
 model.create(nlp=None)
 ```
@@ -42,20 +42,23 @@ Returns a doc object.
 ### Example
 
 ```python
-from SpacyToolKit import SpacyTools
+from SpacyToolKit.Tools import SpacyTools
+import en_core_web_sm
 
 model = SpacyTools()
 
 model.load_text(model.sample_text)
 
-model.create()
+nlp = en_core_web_sm.load()
+
+model.create(nlp)
 ```
 
 ## Side functions
 
 For all examples to work:
 ```python
-from SpacyToolKit import *
+from SpacyToolKit.Tools import *
 ```
 
 ### get_translate(text)
