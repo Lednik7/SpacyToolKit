@@ -18,13 +18,11 @@ class SpacyTools():
   """
   A convenient class that allows you to quickly create and use models for stacking.
   The main language is English.
-
   ru:
   Удобный класс, позволяющий быстро создавать и использовать модели для стеккинга.
   Основной язык - английский.
   """
   def __init__(self):
-    self.lang = ["en_sm", "en_md", "en_lg", "ru_lg"]
 
     self.text = ""
 
@@ -52,32 +50,19 @@ class SpacyTools():
       self.text = inf.read()
     return None
 
-  def create(self, lang="en_sm"):
+  def create(self, nlp=None):
     """
-    create(self, lang="en_sm")
-    The function accepts self and lang (responsible for the language model).
+    create(self, nlp)
+    The function accepts self and nlp (responsible for the language model).
     Allows you to quickly create models for stacking.
     Returns a doc object.
     """
     t = time.time()
 
-    if lang == "en_sm":
-      nlp = spacy.load('en_core_web_sm')
-
-    if lang == "en_md":
-      import en_core_web_md
-      nlp = en_core_web_md.load()
-
-    elif lang == "en_lg":
-      import en_core_web_lg
-      nlp = en_core_web_lg.load()
-
-    elif lang == "ru_lg":
-      nlp = spacy.load("./spacy-ru/ru2", disable=['tagger', 'parser', 'NER'])
-
     doc = nlp(self.text)
 
-    print("Time:", round(time.time() - t, 2), "-", lang)
+    print("Time:", round(time.time() - t, 2))
+    
     return doc
 
 #------------------------------------------functions---------------------------------------------
