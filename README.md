@@ -9,7 +9,7 @@ Choose the language of documantation:
 ### Installing: ###
 
 ```
-pip install SpacyTools
+!git clone https://github.com/Lednik7/SpacyToolKit.git
 ```
 ### Needed packages: ###
 For the library to work correctly, you need to download packages
@@ -39,7 +39,8 @@ More information about models [en](https://spacy.io/models/en) and [ru](https://
 
 To begin, we import the necessary functions and the main class:
 ```python
-from SpacyToolKit import SpacyTools, get_translate, sort_doc
+from SpacyToolKit.Tools import SpacyTools, get_translate, sort_doc
+import en_core_web_sm #!python -m spacy download en_core_web_sm
 ```
 Now create an instance of the class:
 ```python
@@ -54,7 +55,8 @@ trans = get_translate(text) #text translation into english
 Now we are ready to load the text into the model and make a prediction:
 ```python
 model.load_text(trans)
-doc = model.create() #model default: en_core_web_sm
+nlp = en_core_web_sm.load()
+doc = model.create(nlp)
 ```
 Let's look at the result:
 ```python
