@@ -54,12 +54,8 @@ class SpacyTools():
     Allows you to quickly create models for stacking.
     Returns a doc object.
     """
-    t = time.time()
-
     doc = nlp(self.text)
-
-    print("Time:", round(time.time() - t, 2))
-    
+  
     return doc
 
 #------------------------------------------functions---------------------------------------------
