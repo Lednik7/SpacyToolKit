@@ -10,6 +10,7 @@ Choose the language of documantation:
 
 ```
 !git clone https://github.com/Lednik7/SpacyToolKit.git
+!python -m pip install -r SpacyToolKit/requirements.txt
 ```
 ### Needed packages: ###
 For the library to work correctly, you need to download packages
@@ -73,7 +74,7 @@ He participated in the development of several systems for data analysis. There a
 ```
 Fine! Now you are ready to delve into the topic.
 
-You can see examples [here](https://github.com/Lednik7/SpacyTools/tree/master/examples)
+You can see examples of how to use and how to train your own model [here](https://github.com/Lednik7/SpacyTools/tree/master/examples)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Lednik7/SpacyTools/blob/master/LICENSE) file for details
