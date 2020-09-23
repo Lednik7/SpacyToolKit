@@ -9,8 +9,6 @@ pip install pymorphy2==0.8
 
 from collections import Counter
 import spacy
-import time
-from googletrans import Translator
 from difflib import SequenceMatcher
 from itertools import combinations
 
@@ -19,15 +17,13 @@ class SpacyTools():
   A convenient class that allows you to quickly create and use models for stacking.
   The main language is English.
   """
-  def __init__(self):
+  def __init__(self, text=""):
 
-    self.text = ""
+    self.text = text
 
     self.sample_text = """Аналитик данных с опытом работы. Окончил СГАУ со степенью магистра по математике. 
     Имею опыт работы с различными БД и в написании макросов. Работал с различными фреймворками для анализа данных на Python. 
     Участвовал в разработке нескольких систем для анализа данных. Есть примеры своих проектов по Data Science на GitHub:"""
-
-    self.functions = ["get_translate", "sort_doc", "cleaning", "words_count", "find_copy", "delete_copy"]
 
   def load_text(self, text):
     """
@@ -37,9 +33,9 @@ class SpacyTools():
     self.text = text
     return None
 
-  def load_file(self, path):
+  def load_from_file(self, path):
     """
-    load_file(path)
+    load_from_file(path)
     The function reads the text from the file to which the path is specified.
     Writes text to self.text.
     """
@@ -54,22 +50,9 @@ class SpacyTools():
     Allows you to quickly create models for stacking.
     Returns a doc object.
     """
-    doc = nlp(self.text)
-  
-    return doc
+    return nlp(self.text)
 
 #------------------------------------------functions---------------------------------------------
-
-def get_translate(text):
-  """
-  get_translate(text)
-  For this function to work, you must install the module - googletrans.
-  This function takes one argument - string and returns - string.
-  Any other argument will result in an error.
-  """
-  translator = Translator()
-  translations = (translator.translate(text)).text
-  return translations
 
 def sort_doc(doc):
   """
@@ -78,16 +61,15 @@ def sort_doc(doc):
   During the operation of the algorithm, excess values are removed: numbers, omissions.
   The function returns a cleared list of objects of type string.
   """
-  lg = []
+  result = []
   for entity in doc.ents:
-    temp = entity.text.split("\n")
-    for i in temp:
-      if (i != ''):
+    for element in entity.text.split("\n"):
+      if (element != ''):
         try:
           int(i[0])
         except:
-          lg.append(i)
-  return lg
+          result.append(element)
+  return result
 
 def cleaning(data):
   """
@@ -101,7 +83,7 @@ def cleaning(data):
     for j in data:
       if ((j.startswith(i)) and (j != i)) or ((j.endswith(i)) and (j != i)):
         data.remove(i)
-  return set(data)
+  return data
   
 def words_count(text, num=None):
   """
@@ -129,19 +111,31 @@ def find_copy(data):
 
   return set(findword(data))
 
-def delete_copy(data):
+def delete_copy(data, coef=0.75):
   """
   delete_copy(data)
   The function takes a list and deletes the most similar word (if percentage> = 0.75).
   The find_copy() function is required for operation.
   """
   copy = max(find_copy(data))
-  if copy[0] >= 0.75:
-    data.remove(copy[1])
+  if copy[0] >= coef:
+    return data.pop(copy[1])
+  
+def separator(data, sep=" "):
+  assert type(data) == str, "The data must be a string"
 
-  return None
+  return [i.split(sep) for i in data]
+  
+def load_models_from_dir(path):
+  assert type(path)== str, "The data must be a string"
 
-  #------------------------------------------other---------------------------------------------
-
-  if __name__ == "__main__":
-    main()
+  models = []
+  for i in tqdm(os.listdir(path)):
+    models.append(spacy.load(os.path.join(path, i)))
+  return models
+  
+def spans_to_words(train):
+  lst = []
+  for i in train[1]["entities"]:
+    lst.append(train[0][i[0]:i[1]])
+  return lst
