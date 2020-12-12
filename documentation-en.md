@@ -2,11 +2,11 @@
 
 ### __ init __(self)
 ```python
-self.text = ""
-self.sample_text = """Аналитик данных с опытом работы. Окончил СГАУ со степенью магистра по математике. 
-    Имею опыт работы с различными БД и в написании макросов. Работал с различными фреймворками для анализа данных на Python. 
-    Участвовал в разработке нескольких систем для анализа данных. Есть примеры своих проектов по Data Science на GitHub:"""
-self.functions = ["get_translate", "sort_doc", "cleaning", "words_count", "find_copy", "delete_copy"]
+self.text = text
+sample_text = """Аналитик данных с опытом работы. Окончил СГАУ со степенью магистра по математике.
+Имею опыт работы с различными БД и в написании макросов. Работал с различными фреймворками для анализа данных на Python.
+Участвовал в разработке нескольких систем для анализа данных. Есть примеры своих проектов по Data Science на GitHub:""".split("\n")
+self.sample_text = "\n".join(element.strip() for element in sample_text)
 ```
 
 ### SpacyTools():
@@ -105,7 +105,7 @@ By default, all words are displayed.
 
 ### find_copy(data)
 ```python
-data = [abx, abc, agb]
+data = ["abx", "abc", "agb"]
 print(find_copy(data))
 ```
 
@@ -115,7 +115,7 @@ You can use max () to find the most similar word.
 
 ### delete_copy(data)
 ```python
-data = [abx, abc, agb]
+data = ["abx", "abc", "agb"]
 delete_copy(data)
 print(data)
 ```
