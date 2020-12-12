@@ -1,15 +1,15 @@
 # SpacyToolKit
-This is a small library designed to quickly stack Spacy models.
+It is a small library dedicated to the fast Spacy model stack, preparing data for training, and training models.
 
 Choose the language of documantation:
-1) English [here](https://github.com/Lednik7/SpacyTools/blob/master/documentation-en.md)
-2) Russian [here](https://github.com/Lednik7/SpacyTools/blob/master/documentation-ru.md)
+English [here](https://github.com/Lednik7/SpacyTools/blob/master/documentation-en.md)
 
 ## Getting started
 ### Installing: ###
 
 ```
 !git clone https://github.com/Lednik7/SpacyToolKit.git
+!python -m pip install -r SpacyToolKit/requirements.txt
 ```
 ### Needed packages: ###
 For the library to work correctly, you need to download packages
@@ -17,6 +17,8 @@ For the library to work correctly, you need to download packages
 pip install spacy
 pip install googletrans
 pip install pymorphy2==0.8
+pip install sklearn
+pip install numpy
 ```
 
 ## Your first model ##
@@ -39,7 +41,8 @@ More information about models [en](https://spacy.io/models/en) and [ru](https://
 
 To begin, we import the necessary functions and the main class:
 ```python
-from SpacyToolKit.Tools import SpacyTools, get_translate, sort_doc
+from SpacyToolKit.Tools import SpacyTools, sort_doc
+from SpacyToolKit.other import get_translate
 import en_core_web_sm #!python -m spacy download en_core_web_sm
 ```
 Now create an instance of the class:
