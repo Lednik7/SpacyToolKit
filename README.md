@@ -1,5 +1,5 @@
 # SpacyToolKit
-It is a small library dedicated to the fast Spacy model stack, preparing data for training, and training models.
+It is a small library dedicated to the fast Spacy model stack, preparing data for training and training models.
 
 Choose the language of documantation:
 English [here](https://github.com/Lednik7/SpacyTools/blob/master/documentation-en.md)
