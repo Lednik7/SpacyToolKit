@@ -61,7 +61,7 @@ def sort_doc(doc):
     result = []
     for entity in doc.ents:
         for element in entity.text.split("\n"):
-            if (element != '') and element.isalpha():
+            if (element != '') and element[0].isalpha():
                 result.append(element)
     return result
 
