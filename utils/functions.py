@@ -47,7 +47,7 @@ def find_position(data, word):
     the function finds all occurrences of a word in a text ignoring case
     """
     try:
-      return [i.span() for i in re.finditer(r"{}".format(word), data, flags=re.IGNORECASE)]
+      return [i.span() for i in re.finditer(r"\b{}\b".format(word.strip()), data, flags=re.IGNORECASE)]
     except:
       return [(0, 0)]
 
@@ -74,7 +74,7 @@ def preprocessing(texts, words, label, coef=0.3, all_tasks=False, include_repeat
     assert 0 < coef <= 1, f"The argument must be in the range (0 < coef <= 1) --> {coef}"
 
     if all_tasks:
-        words_f = flatten(words, coef)
+        words_f = unique(flatten(words, coef))
         if coef == 1:
             include_repeat = False
     else:
