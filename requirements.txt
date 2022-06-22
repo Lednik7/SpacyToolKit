@@ -2,4 +2,4 @@ spacy==2.3.0
 googletrans==3.1.0a0
 pymorphy2==0.8
 sklearn==0.00.0
-numpy==1.19.4
+numpy==1.22.0
